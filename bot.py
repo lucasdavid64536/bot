@@ -45,7 +45,7 @@ async def on_ready():
 async def help(ctx):
     """Help"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name="Flex Help")
+    em.set_author(name="Gaming High Help")
     em.add_field(name="Moderation", value='`mass(owner)`', inline=False)
     em.add_field(name="Music", value='`play,stop,queue,skip,pause,resume,join`', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
