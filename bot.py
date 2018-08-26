@@ -55,7 +55,18 @@ async def help(ctx):
 async def on_message(message : discord.Message):
     if bot.user.mentioned_in(message):
         await message.channel.send(':sleeping: | You woke me up :( . My prefix is `d_` , for a list of commands type `d_help`', delete_after=10)
+        
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def mass(ctx, *, message):
+    async def maybe_send(member):
+        try:
+            await member.send(message)
+        finally:
+            await ctx.message.delete()
 
+    await asyncio.gather(*[maybe_send(m) for m in ctx.guild.members])
+    
 @bot.listen()
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
