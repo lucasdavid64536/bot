@@ -89,7 +89,7 @@ async def presence():
                     a = a + 1
 
        
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playning, name='Minecraft'))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='Minecraft'))
         
 
 bot.loop.create_task(presence())
